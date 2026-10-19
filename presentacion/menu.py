@@ -1,5 +1,6 @@
 import sys
 from datos import nombre_app, version_app, main_menu
+from presentacion.menu_periodista import solicitar_datos_periodista
 # Aquí puedes importar tus futuros módulos de presentación específicos
 # from presentacion.presentacion_noticias import ...
 
@@ -14,8 +15,15 @@ def menu_principal():
         opcion_usuario = input('Ingrese una opción [1-4]: ')
 
         if opcion_usuario == '1':
-            print('\n--- Redirigiendo a Gestión de Usuarios y Perfiles ---')
-            # Aquí llamarás a las funciones de usuarios o menú de periodistas/lectores
+            print('\n--- Redirigiendo a Gestión de Periodistas ---')
+            datos_nuevo_periodista = solicitar_datos_periodista()  # 👈 Guardamos el diccionario que retorna
+            
+            print("\n¡Periodista registrado con éxito en la interfaz!")
+            # Opcional: puedes imprimir algo de los datos para verificar
+            print(f"Datos recibidos: {datos_nuevo_periodista}")
+            
+            input("\nPresiona ENTER para volver al menú principal...")  # 👈 Esto frena la pantalla para que leas   
+    
         elif opcion_usuario == '2':
             print('\n--- Redirigiendo a Gestión de Noticias y Categorías ---')
             # Aquí llamarás a las funciones de noticias
